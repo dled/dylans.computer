@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "www",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy": "AWS_PROFILE=admin gatsby build && gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths \"/*\"",
+  },
+  "dependencies": {
+    "@rafaelquintanilha/gatsby-theme-countdown": "*",
+    "gatsby": "^2.13.1",
+    "gatsby-plugin-s3": "^0.3.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
