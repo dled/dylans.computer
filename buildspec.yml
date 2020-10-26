@@ -5,15 +5,16 @@ phases:
             nodejs: 12
         commands:
             - 'touch .npmignore'
+            - 'npm install -g gatsby'
     pre_build:
         commands:
-            - 'yarn'
+            - 'npm install'
     build:
         commands:
-            - 'yarn run build'
+            - 'npm run build'
     post_build:
         commands:
-            - 'yarn run deploy'
+            - 'npm run deploy'
 artifacts:
     base-directory: public
     files:
