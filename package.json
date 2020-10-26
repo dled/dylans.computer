@@ -10,7 +10,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "gatsby-plugin-s3 deploy --yes"
+    "deploy": "gatsby build && gatsby-plugin-s3 deploy --yes"
   },
   "dependencies": {
     "@rafaelquintanilha/gatsby-theme-countdown": "*",
