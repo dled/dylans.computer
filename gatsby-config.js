@@ -1,3 +1,4 @@
+const targetAddress = new URL(process.env.TARGET_ADDRESS || `http://ledbetter.fm`);
 module.exports = {
   siteMetadata: {
     title: `LEDBETTER.FM`,
@@ -16,7 +17,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-        bucketName: `ledbetter-fm`,
+        bucketName: process.env.TARGET_BUCKET_NAME || "fake-bucket",
+        region: process.env.AWS_REGION,
+        protocol: targetAddress.protocol.slice(0, -1),
+        hostname: targetAddress.hostname,
+        acl: null,
+        params: {
+        },
       },
     },
 
