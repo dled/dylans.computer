@@ -10,7 +10,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "AWS_PROFILE=admin gatsby build && gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths \"/*\"",
+    "deploy": "AWS_PROFILE=admin gatsby build && gatsby-plugin-s3 deploy --yes"
   },
   "dependencies": {
     "@rafaelquintanilha/gatsby-theme-countdown": "*",
