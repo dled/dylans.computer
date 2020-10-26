@@ -7,7 +7,7 @@ phases:
             - 'touch .npmignore'
     pre_build:
         commands:
-            - 'yarn install --frozen-lockfile --production'
+            - 'yarn'
     build:
         commands:
             - 'yarn run build'
