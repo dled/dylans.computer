@@ -27,7 +27,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-canonical-urls`,
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: targetAddress.href.slice(0, -1),
       },
