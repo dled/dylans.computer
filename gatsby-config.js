@@ -11,7 +11,7 @@ module.exports = {
       options: {
         mainHeader: "LEDBETTER.FM",
         basePath: `/`,
-        targetDate: `2020-11-01 00:00:00`,
+        targetDate: `2020-11-02 17:00:00`,
       },
     },
     {
