@@ -1,26 +1,104 @@
 {
-  "private": true,
-  "name": "www",
-  "version": "0.1.0",
+  "name": "ledbetter.fm",
+  "version": "0.0.1",
+  "description": "A digital garden.",
+  "main": "index.js",
+  "author": {
+    "name": "Dylan Ledbetter",
+    "email": "dylan@ledbetter.fm",
+    "url": "https://ledbetter.fm"
+  },
   "license": "MIT",
   "scripts": {
+    "dev": "gatsby develop -p 4512 -o",
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "gatsby build && gatsby-plugin-s3 deploy --yes"
+    "serve": "gatsby serve -p 4500 -o",
+    "format": "pretty-quick",
+    "wellknown": "cp -r .well-known/ public/",
+    "robots": "cp robots.txt public/",
+    "postinstall": "patch-package",
+    "deploy": "yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "dependencies": {
-    "@rafaelquintanilha/gatsby-theme-countdown": "*",
-    "gatsby": "^2.13.1",
+    "@mdx-js/mdx": "1.6.18",
+    "@mdx-js/react": "1.6.18",
+    "@nivo/calendar": "^0.62.0",
+    "@nivo/pie": "^0.62.0",
+    "babel-plugin-styled-components": "1.11.1",
+    "convertkit-react": "^1.4.1",
+    "date-fns": "^2.16.1",
+    "gatsby": "2.24.80",
+    "gatsby-image": "2.4.21",
     "gatsby-plugin-canonical-urls": "^2.3.13",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-google-fonts-v2": "^0.0.6",
+    "gatsby-plugin-mailgo": "^0.10.3",
+    "gatsby-plugin-manifest": "^2.4.34",
+    "gatsby-plugin-mdx": "1.2.47",
+    "gatsby-plugin-mdx-embed": "^0.0.14",
+    "gatsby-plugin-offline": "^3.2.32",
+    "gatsby-plugin-preact": "^4.0.15",
+    "gatsby-plugin-react-helmet": "^3.3.13",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-s3": "^0.3.8",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "gatsby-plugin-sharp": "2.6.42",
+    "gatsby-plugin-sitemap": "^2.4.17",
+    "gatsby-plugin-styled-components": "3.3.14",
+    "gatsby-plugin-use-dark-mode": "^1.1.2",
+    "gatsby-remark-autolink-headers": "^2.3.15",
+    "gatsby-remark-copy-linked-files": "^2.3.19",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "3.3.35",
+    "gatsby-remark-smartypants": "^2.3.13",
+    "gatsby-source-filesystem": "2.3.35",
+    "gatsby-source-graphql": "^2.7.6",
+    "gatsby-transformer-json": "^2.4.14",
+    "gatsby-transformer-sharp": "2.5.18",
+    "kwesforms": "^2.0.2",
+    "markdown-to-jsx": "^7.0.1",
+    "mdx-embed": "^0.0.14",
+    "mdx-utils": "0.2.0",
+    "preact": "^10.5.4",
+    "preact-render-to-string": "^5.1.9",
+    "prism-react-renderer": "1.1.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-helmet": "^6.1.0",
+    "react-live": "2.2.2",
+    "react-seo-component": "^2.0.2",
+    "react-share": "^4.3.1",
+    "styled-breakpoints": "^8.1.2",
+    "styled-components": "5.2.0",
+    "styled-reset": "4.2.3",
+    "use-dark-mode": "^2.3.1",
+    "victormono": "^1.3.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
-  }
+    "husky": "4.3.0",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
+    "prettier": "2.1.2",
+    "pretty-quick": "3.1.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5",
+    "printWidth": 70,
+    "arrowParens": "avoid",
+    "proseWrap": "always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dled/ledbetter.fm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dled/ledbetter.fm/issues"
+  },
+  "homepage": "https://github.com/dled/ledbetter.fm#readme"
 }
