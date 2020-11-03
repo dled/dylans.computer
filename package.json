@@ -56,7 +56,6 @@
     "gatsby-remark-images": "3.3.35",
     "gatsby-remark-smartypants": "^2.3.13",
     "gatsby-source-filesystem": "2.3.35",
-    "gatsby-source-graphql": "^2.7.6",
     "gatsby-transformer-json": "^2.4.14",
     "gatsby-transformer-sharp": "2.5.18",
     "kwesforms": "^2.0.2",
