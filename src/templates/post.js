@@ -38,7 +38,7 @@ const TagsWrapper = styled.section`
   a {
     text-decoration: none;
     :hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
     ${focusOutline}
   }

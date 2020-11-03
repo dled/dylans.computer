@@ -3,7 +3,7 @@ module.exports = {
   siteTitle: 'LEDBETTER.FM', // Navigation and Site Title
   siteTitleAlt: 'Dylan Ledbetter',
   siteTitleShort: 'LEDBETTER.FM', // short_name for manifest
-  siteUrl: 'http://ledbetter.fm', // Domain of your site. No trailing slash!
+  siteUrl: 'https://ledbetter.fm', // Domain of your site. No trailing slash!
   siteLanguage: 'en-US', // Language Tag on <html> element
   siteLocale: 'en_us', // Language Tag on <html> element
   siteLogo: 'static/favicon.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder

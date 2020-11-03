@@ -13,9 +13,10 @@ export const theme = {
     xl: '1280px',
   },
   fontFamily: {
-    mono: [['Fira Code'], defaults.fontFamily.mono].join(`,`),
+    code: [['Fira Code'], defaults.fontFamily.mono].join(`,`),
+    mono: defaults.fontFamily.mono,
     sans: [['Rubik'], defaults.fontFamily.sans].join(`,`),
-    serif: [['Proza Libre'], defaults.fontFamily.serif].join(`,`),
+    serif: defaults.fontFamily.serif,
   },
   boxShadow: {
     outline: '0 0 0 3px hsla(270, 50%, 40%, 0.5)',

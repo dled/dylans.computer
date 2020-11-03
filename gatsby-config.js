@@ -1,6 +1,6 @@
 const config = require('./config/website')
 const targetAddress = new URL(
-  process.env.TARGET_ADDRESS || `http://ledbetter.fm`
+  process.env.TARGET_ADDRESS || `https://ledbetter.fm`
 )
 
 const activeEnv =
@@ -47,6 +47,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-use-dark-mode`,
@@ -103,11 +104,6 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Proza Libre',
-            variable: true,
-            weights: ['200..800'],
-          },
-          {
             family: 'Rubik',
             variable: true,
             weights: ['400..900'],
@@ -121,20 +117,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-s3`,
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        bucketName: process.env.TARGET_BUCKET_NAME || 'fake-bucket',
-        region: process.env.AWS_REGION,
-        protocol: targetAddress.protocol.slice(0, -1),
-        hostname: targetAddress.hostname,
-        acl: null,
-        params: {},
-      },
-    },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: targetAddress.href.slice(0, -1),
+        siteUrl: siteMetadata.canonicalUrl,
+        noTrailingSlash: true,
       },
     },
     {
@@ -145,8 +131,41 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
+        theme_color_in_head: false,
         display: `minimal-ui`,
         icon: config.siteLogo, // This path is relative to the root of the site.
+        icons: [
+          {
+            src: `/static/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/apple-touch-icon.png`,
+            sizes: `180x180`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/favicon-16x16.png`,
+            sizes: `16x16`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/favicon-32x32.png`,
+            sizes: `32x32`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/favicon.ico`,
+            sizes: `48x48`,
+            type: `image/png`,
+          },
+        ],
       },
     },
   ],

@@ -231,7 +231,13 @@ export const defaults = {
       '"Segoe UI Symbol"',
       '"Noto Color Emoji"',
     ],
-    serif: ['"Proza Libre"', 'serif'],
+    serif: [
+      'Georgia',
+      'Palatino',
+      '"Lucida Bright"',
+      'Garamond',
+      'serif',
+    ],
     mono: [
       'Menlo',
       'Monaco',

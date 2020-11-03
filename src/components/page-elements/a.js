@@ -5,7 +5,8 @@ import { linkHover, linkStyle } from '../shared-styles'
 import { inlineCode } from './inline-code'
 
 export const StyledA = styled.a`
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
   ${linkStyle};
   ${linkHover};
   code {

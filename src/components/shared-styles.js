@@ -104,7 +104,7 @@ export const PostInfo = styled.div`
       }
     }
     a {
-      text-decoration: underline;
+      text-decoration: none;
       ${linkStyle};
       ${linkHover};
       color: var(
