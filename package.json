@@ -17,7 +17,7 @@
     "wellknown": "cp -r .well-known/ public/",
     "robots": "cp robots.txt public/",
     "postinstall": "patch-package",
-    "deploy": "gatsby build && gatsby-plugin-s3 deploy --yes"
+    "deploy": "yarn build && yarn robots"
   },
   "husky": {
     "hooks": {
