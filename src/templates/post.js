@@ -89,7 +89,7 @@ export default ({ data }) => {
   } = useSiteMetadata()
   const {
     frontmatter: { title, private: isPrivate, date, tags },
-    fields: { editLink, slug },
+    fields: { slug },
     timeToRead,
     body,
     tableOfContents,
@@ -144,17 +144,7 @@ export default ({ data }) => {
         </section>
         <PostInfo>
           <span className="postTimeToRead">
-            {timeToRead * 2} minutes to read
-          </span>
-          <span className="postEditOnGitHub">
-            <a
-              onClick={() => fa('8C4MCGZM')}
-              href={editLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Edit on GitHub
-            </a>
+            {timeToRead * 2} minute read
           </span>
         </PostInfo>
         <TagsWrapper>
@@ -190,7 +180,6 @@ export const query = graphql`
       }
       fields {
         slug
-        editLink
       }
     }
   }

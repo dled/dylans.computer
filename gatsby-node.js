@@ -53,7 +53,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
           fields {
             slug
-            editLink
           }
         }
       }
@@ -91,15 +90,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
-    })
-
-    createNodeField({
-      name: `editLink`,
-      node,
-      value: `https://github.com/dled/ledbetter.fm/authoring${node.fileAbsolutePath.replace(
-        __dirname,
-        ''
-      )}`,
     })
   }
 }
