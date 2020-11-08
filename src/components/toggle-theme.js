@@ -19,8 +19,8 @@ export const ToggleTheme = () => {
     >
       <img
         src={image}
-        width="30px"
-        height="30px"
+        width="25"
+        height="25"
         alt={`Toggle ${value ? `light` : `dark`}  mode`}
       />
     </button>

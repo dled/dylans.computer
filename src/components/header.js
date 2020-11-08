@@ -52,7 +52,6 @@ const StyledHeader = styled.header`
     }
   }
   p {
-    margin-top: -${({ theme }) => theme.spacing[3]};
     font-size: ${({ theme }) => theme.fontSize.xs};
     ${rainbowAnimation}
   }
@@ -60,11 +59,12 @@ const StyledHeader = styled.header`
   button {
     position: absolute;
     right: 0;
-    margin-top: 10px;
+    margin-top: 7.5px;
     background: none;
     border: none;
+    vertical-align: middle;
     img {
-      width: 30px;
+      width: 25px;
     }
     border-radius: ${({ theme }) => theme.borderRadius.full};
     outline: none;
