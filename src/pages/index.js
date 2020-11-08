@@ -1,72 +1,92 @@
-import React from 'react'
+import { graphql } from 'gatsby'
+import React, { useState } from 'react'
 import SEO from 'react-seo-component'
-//import { down } from 'styled-breakpoints'
-//import styled from 'styled-components'
-import About from '../../content/copy/about'
-//import { NavItems } from '../components/nav-items'
+import { down } from 'styled-breakpoints'
+import styled from 'styled-components'
+import { H1, H2, P } from '../components/page-elements'
+import {
+  linkHover,
+  linkStyle,
+  PostInfo,
+  rainbowAnimation,
+  StyledLink,
+} from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
 
-//const Wrapper = styled.section`
-//  position: relative;
-//  display: grid;
-//  grid-auto-rows: min-content;
-//  min-height: 90vh;
-//  ${down('md')} {
-//    min-height: 80vh;
-//  }
-//  div {
-//    margin: 0 auto;
-//    margin-top: 20%;
-//    border-radius: ${({ theme }) => theme.borderRadius.full};
-//    height: 200px;
-//    width: 200px;
-//    ${down('sm')} {
-//      height: 150px;
-//      width: 150px;
-//    }
-//  }
-//  h1 {
-//    text-align: center;
-//    margin-top: 20%;
-//    ${down('sm')} {
-//      margin-top: 10%;
-//    }
-//    span {
-//      &:before {
-//        content: ' ';
-//      }
-//    }
-//  }
-//  nav {
-//    position: relative;
-//    bottom: 0;
-//    margin: 0 -10rem;
-//    margin-top: 25%;
-//    display: grid;
-//    grid-template-columns: repeat(4, 1fr);
-//    grid-template-rows: auto;
-//    grid-template-areas: 'about portfolio now uses';
-//    ${down('md')} {
-//      grid-template-columns: repeat(2, 1fr);
-//      grid-template-areas:
-//        'about portfolio'
-//        'now uses';
-//      margin: 0;
-//      margin-top: 30%;
-//    }
-//    ${down('sm')} {
-//      margin-top: 20%;
-//    }
-//    grid-gap: 30px;
-//  }
-//`
+const Wrapper = styled.main`
+  input {
+    margin-top: ${({ theme }) => theme.spacing[12]};
+    font-size: ${({ theme }) => theme.fontSize.lg};
+    border-radius: ${({ theme }) => theme.borderRadius.lg};
+    border: 1px solid ${({ theme }) => theme.colors.gray[500]};
+    padding: ${({ theme }) => theme.spacing[1]};
+    outline: none;
+    &:focus {
+      box-shadow: ${({ theme }) => theme.boxShadow.outline};
+    }
+  }
+  .posts-number {
+    margin: -${({ theme }) => theme.spacing[6]};
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    font-family: ${({ theme }) => theme.fontFamily.mono};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: ${({ theme }) => theme.colors.primary[500]};
+  }
+  small {
+    ${rainbowAnimation}
+  }
+  article {
+    margin: ${({ theme }) => theme.spacing[8]} 0;
+    border-radius: ${({ theme }) => theme.borderRadius.lg};
+    box-shadow: var(--box-shadow-xl);
+    color: var(
+      --colour-on-background,
+      ${({ theme }) => theme.colors.gray[900]}
+    );
+    padding: ${({ theme }) => theme.spacing[4]};
+    h2 {
+      margin-top: 0;
+    }
+    p {
+      margin-top: ${({ theme }) => theme.spacing[2]};
+    }
+    a {
+      &:focus {
+        display: block;
+      }
+      ${linkStyle};
+      ${linkHover};
+      text-decoration: none;
+    }
+    overflow: hidden;
+    &:before {
+      position: relative;
+      display: block;
+      margin: 0 -17px;
+      width: 108%;
+      ${down('sm')} {
+        width: initial;
+      }
+      height: 5px;
+      top: -16px;
+      content: '';
+      background: linear-gradient(
+        0.25turn,
+        var(
+          --title-gradient-from,
+          ${({ theme }) => theme.colors.primary[200]}
+        ),
+        var(
+          --title-gradient-to,
+          ${({ theme }) => theme.colors.primary[500]}
+        )
+      );
+    }
+  }
+`
 
-//const LandingPage = ({ children }) => {
-//  return <Wrapper>{children}</Wrapper>
-//}
-
-export default () => {
+export default ({ data }) => {
   const {
     title,
     description,
@@ -76,23 +96,93 @@ export default () => {
     siteLanguage,
     siteLocale,
   } = useSiteMetadata()
+  // https://www.aboutmonica.com/blog/create-gatsby-blog-search-tutorial
+  const allPosts = data.allMdx.nodes
+
+  const emptyQuery = ''
+
+  const [state, stateSet] = useState({
+    filteredData: [],
+    query: emptyQuery,
+  })
+
+  const handleInputChange = e => {
+    const query = e.target.value
+    const posts = data.allMdx.nodes || []
+
+    const filteredData = posts.filter(post => {
+      const { title, tags } = post.frontmatter
+      return (
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        (tags &&
+          tags.join('').toLowerCase().includes(query.toLowerCase()))
+      )
+    })
+
+    stateSet({ query, filteredData })
+  }
+
+  const { filteredData, query } = state
+  const hasSearchResults = filteredData && query !== emptyQuery
+  const posts = hasSearchResults ? filteredData : allPosts
+
   return (
     <>
       <SEO
-        title={`Home`}
+        title={`Blog`}
         titleTemplate={title}
         description={description}
-        image={ogImageUrl(
-          authorName,
-          'LEDBETTER.FM',
-          `Keepin' it on the DL`
-        )}
-        pathname={siteUrl}
+        image={ogImageUrl(authorName, 'ledbetter.fm', `Blog`)}
+        pathname={`${siteUrl}/blog/`}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <About />
+      <Wrapper>
+        {posts.map(post => {
+          const {
+            id,
+            excerpt,
+            fields: { slug },
+            frontmatter: { title },
+            timeToRead,
+          } = post
+          return (
+            <article key={id}>
+              <StyledLink to={slug}>
+                <H2>{title}</H2>
+                <PostInfo>
+                  <span className="postTimeToRead">
+                    {timeToRead * 2} min read
+                  </span>
+                </PostInfo>
+                <P>{excerpt}</P>
+              </StyledLink>
+            </article>
+          )
+        })}
+      </Wrapper>
     </>
   )
 }
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { private: { eq: false } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 100)
+        frontmatter {
+          title
+        }
+        timeToRead
+        fields {
+          slug
+        }
+      }
+    }
+  }
+`

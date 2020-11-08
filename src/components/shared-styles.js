@@ -92,6 +92,10 @@ export const PostInfo = styled.div`
   .postTimeToRead {
     grid-area: ttr;
     margin-right: ${({ theme }) => theme.spacing[1]};
+    color: var(
+      --colour-read,
+      ${({ theme }) => theme.colors.orange[800]}
+    );
   }
   .postEditOnGitHub {
     grid-area: edit;

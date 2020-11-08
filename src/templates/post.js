@@ -9,10 +9,8 @@ import {
   focusOutline,
   negMargin,
   PostInfo,
-  rainbowAnimation,
   Toc,
 } from '../components/shared-styles'
-import { Share } from '../components/social-share'
 import { useAnalytics } from '../contexts/event-tracking'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
@@ -31,20 +29,23 @@ const TagsWrapper = styled.section`
   grid-gap: ${({ theme }) => theme.spacing[3]};
   grid-auto-columns: max-content;
   margin-top: ${({ theme }) => theme.spacing[2]};
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   :after {
     content: ' ';
   }
   a {
     text-decoration: none;
+    color: var(
+      --colour-link,
+      ${({ theme }) => theme.colors.teal[400]}
+    );
     :hover {
       text-decoration: none;
     }
     ${focusOutline}
   }
   small {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
-    ${rainbowAnimation}
+    font-weight: ${({ theme }) => theme.fontWeight.light};
   }
 `
 
@@ -156,11 +157,6 @@ export default ({ data }) => {
         </TagsWrapper>
         <MDXRenderer>{body}</MDXRenderer>
       </PostWrapper>
-      <Share
-        url={`${siteUrl}${slug}`}
-        title={title}
-        twitterHandle={twitterUsername}
-      />
     </>
   )
 }

@@ -16,8 +16,8 @@ export const themeVariables = css`
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --title-gradient-from: ${({ theme }) => theme.colors.blue[300]};
-    --title-gradient-to: ${({ theme }) => theme.colors.blue[800]};
+    --title-gradient-from: ${({ theme }) => theme.colors.gray[900]};
+    --title-gradient-to: ${({ theme }) => theme.colors.gray[900]};
     --scrollbar-bg: ${({ theme }) => theme.colors.primary[100]};
     --thumb-bg: ${({ theme }) => theme.colors.primary[500]};
     --rainbow-one: #9349f0;
@@ -26,6 +26,8 @@ export const themeVariables = css`
     --rainbow-four: #b05d2e;
     --rainbow-five: #864bfe;
     --rainbow-six: #cc4438;
+    --colour-link: ${({ theme }) => theme.colors.purple[600]};
+    --colour-read: ${({ theme }) => theme.colors.orange[600]};
   }
   .dark-mode {
     --colour-background: ${({ theme }) => theme.colors.blue[900]};
@@ -42,8 +44,8 @@ export const themeVariables = css`
       0 4px 6px -2px rgba(0, 0, 0, 5);
     --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 4);
-    --title-gradient-from: ${({ theme }) => theme.colors.blue[400]};
-    --title-gradient-to: ${({ theme }) => theme.colors.blue[100]};
+    --title-gradient-from: ${({ theme }) => theme.colors.gray[100]};
+    --title-gradient-to: ${({ theme }) => theme.colors.gray[100]};
     --scrollbar-bg: ${({ theme }) => theme.colors.primary[900]};
     --thumb-bg: ${({ theme }) => theme.colors.primary[500]};
     --rainbow-one: #a269ee;
@@ -52,5 +54,7 @@ export const themeVariables = css`
     --rainbow-four: #f16623;
     --rainbow-five: #976cf6;
     --rainbow-six: #d86253;
+    --colour-link: ${({ theme }) => theme.colors.yellow[200]};
+    --colour-read: ${({ theme }) => theme.colors.indigo[500]};
   }
 `
