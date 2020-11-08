@@ -13,14 +13,16 @@ import {
 } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
+import { magnifier } from '../../static/magnifier.svg'
 
 const Wrapper = styled.main`
   input {
     margin-top: ${({ theme }) => theme.spacing[12]};
     font-size: ${({ theme }) => theme.fontSize.lg};
-    border-radius: ${({ theme }) => theme.borderRadius.lg};
-    border: 1px solid ${({ theme }) => theme.colors.gray[500]};
+    border-radius: 1rem;
+    border: 1px solid ${({ theme }) => theme.colors.gray[900]};
     padding: ${({ theme }) => theme.spacing[1]};
+    padding-left: 10px;
     outline: none;
     &:focus {
       box-shadow: ${({ theme }) => theme.boxShadow.outline};
@@ -139,6 +141,15 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <Wrapper>
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="?!"
+          onChange={handleInputChange}
+        />
+        <span className="posts-number">
+          {Object.keys(posts).length}
+        </span>
         {posts.map(post => {
           const {
             id,
