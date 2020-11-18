@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop -p 4512 -o",
-    "build": "gatsby build",
+    "build": "gatsby build && yarn wellknown && yarn robots",
     "serve": "gatsby serve -p 4500 -o",
     "format": "pretty-quick",
     "wellknown": "cp -r .well-known/ public/",

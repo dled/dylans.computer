@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/dylanledbetter
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ledbetter.fm
+  * I am dylanledbetter (https://keybase.io/dylanledbetter) on keybase.
+  * I have a public key ASAMaiwofMb7zbyfSTDmnEFywIw6pEMP0kHbQJ85j8M8Xwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01010c705dadac550f817adc61cba217d658b4ce2bb67cff891361ad7a461adf5ae50a",
+      "host": "keybase.io",
+      "kid": "01200c6a2c287cc6fbcdbc9f4930e69c4172c08c3aa4430fd241db409f398fc33c5f0a",
+      "uid": "dda37c85ef65d71f797d81cd800db319",
+      "username": "dylanledbetter"
+    },
+    "merkle_root": {
+      "ctime": 1605710703,
+      "hash": "aad88837015cddc8a6807ef17ab78feab466b0dd62dec41846f95808728e5b4f3898f0a966b872d66e24da788a7fefa9a2c380c8ab2b64bdd66da3bf886f93a2",
+      "hash_meta": "2545b5ad9ac66b81f3adbc59d68c730fed8fd8c5619a70d042181b8cb8785e46",
+      "seqno": 18158888
+    },
+    "service": {
+      "entropy": "/g1UDtL793pXu7QxT9tkDQpM",
+      "hostname": "ledbetter.fm",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1605710725,
+  "expire_in": 504576000,
+  "prev": "7108707bcef2f33b39a3fc429bc06c2d24135c31e3999db4fa0e14818234c474",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgDGosKHzG+828n0kw5pxBcsCMOqRDD9JB20CfOY/DPF8Kp3BheWxvYWTESpcCFsQgcQhwe87y8zs5o/xCm8BsLSQTXDHjmZ20+g4UgYI0xHTEIOtozcKJRiwaT6A7fR5Wm0JoQg+8ygZLv7rVATdqd7YFAgHCo3NpZ8RA3qk3qg8s84Wd5SLG82cQNpl23qpJ9ntM54PNVsrvRTDNVGOGOpOhp3Ngzmvh+e/unC47GKdLOSq+L36u0VuXAKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBdknz1BkiUw1+oFwzZuK1A2v8mVW65jO8RYt+fUytfMo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dylanledbetter
+
+==================================================================
