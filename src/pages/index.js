@@ -13,7 +13,6 @@ import {
 } from '../components/shared-styles'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
-import { magnifier } from '../../static/magnifier.svg'
 
 const Wrapper = styled.main`
   input {
