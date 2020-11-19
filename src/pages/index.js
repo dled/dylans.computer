@@ -70,8 +70,8 @@ export default () => {
   return (
     <>
       <SEO
-        title={`Home`}
-        titleTemplate={title}
+        title={`LEDBETTER`}
+        titleTemplate={`FM`}
         description={description}
         image={ogImageUrl(authorName, 'ledbetter.fm', `social`)}
         pathname={siteUrl}
