@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, linkStyle, rainbowAnimation } from './shared-styles'
-import { ToggleTheme } from './toggle-theme'
+//import { ToggleTheme } from './toggle-theme'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -95,7 +95,6 @@ export const Header = ({ title, description }) => {
             <span className="dot-com">.FM</span>
           </p>
         </StyledLink>
-        <ToggleTheme />
       </StyledHeader>
     </>
   )

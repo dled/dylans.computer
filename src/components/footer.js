@@ -81,7 +81,7 @@ export const Footer = () => {
         <Twitch />
       </a>
       <p className="sign-off">
-        {`Built with Gatsby · Hosted on AWS · ${new Date().getFullYear()}`}
+        {`Built with Gatsby · Hosted on Netlify · ${new Date().getFullYear()}`}
       </p>
     </Wrapper>
   )
