@@ -12,13 +12,9 @@ const Wrapper = styled.section`
   position: relative;
   display: grid;
   grid-auto-rows: min-content;
-  min-height: 90vh;
-  ${down('md')} {
-    min-height: 80vh;
-  }
   div {
     margin: 0 auto;
-    margin-top: 20%;
+    margin-top: 5%;
     border-radius: ${({ theme }) => theme.borderRadius.full};
     height: 200px;
     width: 200px;
@@ -38,20 +34,6 @@ const Wrapper = styled.section`
         content: ' ';
       }
     }
-  }
-  nav {
-    position: relative;
-    bottom: 0;
-    margin: 0 -10rem;
-    margin-top: 25%;
-    display: grid;
-    ${down('md')} {
-      margin-top: 30%;
-    }
-    ${down('sm')} {
-      margin-top: 20%;
-    }
-    grid-gap: 30px;
   }
 `
 

@@ -10,7 +10,7 @@ const Wrapper = styled.footer`
   margin: ${({ theme }) => theme.spacing[8]} 0;
   .name {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
-    font-family: ${({ theme }) => theme.fontFamily.sans};
+    font-family: ${({ theme }) => theme.fontFamily.serif};
     line-height: ${({ theme }) => theme.lineHeight.none};
     margin: ${({ theme }) => theme.spacing[8]} 0;
   }
@@ -23,10 +23,12 @@ const Wrapper = styled.footer`
     );
   }
   svg {
+    width: 40px;
+    height: 40px;
     margin: 0 ${({ theme }) => theme.spacing[4]};
-    height: ${({ theme }) => theme.spacing[6]};
+    height: ${({ theme }) => theme.spacing[8]};
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       transition: transform 0.35s;
     }
   }
@@ -36,9 +38,9 @@ const Wrapper = styled.footer`
   }
   .sign-off {
     margin-top: ${({ theme }) => theme.spacing[6]};
-    margin-bottom: ${({ theme }) => theme.spacing[16]};
+    margin-bottom: ${({ theme }) => theme.spacing[6]};
     ${down('sm')} {
-      margin-bottom: ${({ theme }) => theme.spacing[24]};
+      margin-bottom: ${({ theme }) => theme.spacing[6]};
     }
   }
 `
@@ -47,7 +49,6 @@ export const Footer = () => {
   return (
     <Wrapper>
       <hr />
-      <p className="name">DYLAN LEDBETTER</p>
       <a
         href="https://twitter.com/_dylanledbetter"
         target="_blank"
@@ -81,7 +82,10 @@ export const Footer = () => {
         <Twitch />
       </a>
       <p className="sign-off">
-        {`Built with Gatsby · Hosted on Netlify · ${new Date().getFullYear()}`}
+        {`Built with Gatsby · Hosted on Netlify`}
+      </p>
+      <p className="sign-off">
+        {`Dylan Ledbetter ${new Date().getFullYear()}`}
       </p>
     </Wrapper>
   )
