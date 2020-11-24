@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { SocialCard } from '../components/social-card'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { ogImageUrl } from '../util/build-og-image-url'
+import NowPlaying from '../../content/copy/spotify'
+import { H1 } from '../components/page-elements'
 
 const Wrapper = styled.section`
   position: relative;
@@ -81,6 +83,8 @@ export default () => {
       />
       <LandingPage>
         <SocialCard />
+        <H1>Now Playing</H1>
+        <NowPlaying />
       </LandingPage>
     </>
   )
