@@ -1,0 +1,105 @@
+---
+date: 2020-11-30
+title: Jenks Natural Breaks
+tags: ['information', 'learning', 'guide']
+private: false
+---
+
+```
+$ sudo su -
+$ /run/media/$(whoami)/VBox_GAs_6.1.16/VBoxGuestAdditions.run
+```
+
+```
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.1.16 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+This system appears to have a version of the VirtualBox Guest Additions
+already installed.  If it is part of the operating system and kept up-to-date,
+there is most likely no need to replace it.  If it is not up-to-date, you
+should get a notification when you start the system.  If you wish to replace
+it with this version, please do not continue with this installation now, but
+instead remove the current version first, following the instructions for the
+operating system.
+
+If your system simply has the remains of a version of the Additions you could
+not remove you should probably continue now, and these will be removed during
+installation.
+
+Do you wish to continue? [yes or no]
+yes
+touch: cannot touch '/var/lib/VBoxGuestAdditions/skip-5.8.16-2-MANJARO': No such file or directory
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 5.8.16-2-MANJARO.
+
+This system is currently not set up to build kernel modules.
+Please install the gcc make perl packages from your distribution.
+Please install the Linux kernel "header" files matching the current kernel
+for adding new hardware support to the system.
+VirtualBox Guest Additions: Running kernel modules will not be replaced until
+the system is restarted
+```
+
+Uninstall guest additions (as root)
+
+```
+[manjaro ~]# /sbin/vbox-uninstall-guest-additions
+```
+
+```
+[manjaro ~]# pacman -S gcc make perl
+```
+
+Install kernel [headers (readme)] viz `uname -r`.
+
+```
+[manjaro ~]# uname -r
+5.8.16-2-MANJARO
+```
+
+```
+[manjaro ~]# pacman -S linux-headers
+:: There are 11 providers available for linux-headers:
+:: Repository core
+   1) linux414-headers  2) linux419-headers  3) linux44-headers  4) linux49-headers
+   5) linux510-headers  6) linux54-headers  7) linux57-headers  8) linux58-headers
+   9) linux59-headers
+:: Repository community
+   10) linux54-rt-headers  11) linux59-rt-headers
+
+Enter a number (default=1): 8
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) linux58-headers-5.8.18-1
+
+Total Download Size:   12.83 MiB
+Total Installed Size:  48.28 MiB
+
+:: Proceed with installation? [Y/n] Y
+:: Retrieving packages...
+ linux58-headers-5.8.18-1-x...    12.8 MiB  2.70 MiB/s 00:05 [#################################] 100%
+(1/1) checking keys in keyring                               [#################################] 100%
+(1/1) checking package integrity                             [#################################] 100%
+(1/1) loading package files                                  [#################################] 100%
+(1/1) checking for file conflicts                            [#################################] 100%
+(1/1) checking available disk space                          [#################################] 100%
+:: Processing package changes...
+(1/1) installing linux58-headers                             [#################################] 100%
+:: Running post-transaction hooks...
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating module dependencies...
+```
+
+<!-- Links -->
+
+[headers (readme)]:
+  https://linuxconfig.org/manjaro-linux-kernel-headers-installation
