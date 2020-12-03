@@ -1,15 +1,15 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
-  siteTitle: 'LEDBETTER.FM', // Navigation and Site Title
-  siteTitleAlt: 'Dylan Ledbetter',
-  siteTitleShort: 'LEDBETTER.FM', // short_name for manifest
-  siteUrl: 'https://ledbetter.fm', // Domain of your site. No trailing slash!
+  siteTitle: 'dylans.computer', // Navigation and Site Title
+  siteTitleAlt: 'dylans.computer',
+  siteTitleShort: "Dylan's PC", // short_name for manifest
+  siteUrl: 'https://dylans.computer', // Domain of your site. No trailing slash!
   siteLanguage: 'en-US', // Language Tag on <html> element
   siteLocale: 'en_us', // Language Tag on <html> element
   siteLogo: 'static/favicon.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
-  siteDescription: 'Finance + Math + Data + Maps',
+  siteDescription: "Dylan Ledbetter's computer",
   author: 'Dylan Ledbetter', // Author for schemaORGJSONLD
-  organization: 'ledbetter.fm',
+  organization: 'Dylan Ledbetter',
   lastBuildDate: new Date(Date.now()).toISOString(),
   siteLanguage: `en-US`,
   siteLocale: `en_us`,
@@ -23,14 +23,14 @@ module.exports = {
   githubUrl: 'https://github.com/dled/',
   githubHandle: 'dled',
   keywords: [
+    'Dylan Ledbetter',
     'Data Science',
     'Machine Learning',
     'Maps',
     'Economics',
-    'Dylan Ledbetter',
     'Crypto',
   ],
   minibio: `
-    <strong>LEDBETTER.FM</strong> is one helluva website.
+    Welcome to <strong>Dylan's computer</strong>.
   `,
 }
