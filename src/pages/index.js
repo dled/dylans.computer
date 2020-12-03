@@ -130,10 +130,14 @@ export default ({ data }) => {
   return (
     <>
       <SEO
-        title={`Blog`}
-        titleTemplate={title}
+        title={`dylans`}
+        titleTemplate={`computer`}
         description={description}
-        image={ogImageUrl(authorName, 'ledbetter.fm', `Blog`)}
+        image={ogImageUrl(
+          authorName,
+          'dylans.computer',
+          `helloworld`
+        )}
         pathname={`${siteUrl}/`}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
